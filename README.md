@@ -113,3 +113,225 @@ openenterprise/
 | 10    | E-commerce              |
 | 11    | Frontend                |
 | 12    | Testing & docs          |
+
+
+# 1️⃣ API Gateway — Go
+**Purpose:** Routing, auth forwarding, rate limiting
+```
+gateway-go/
+├── cmd/
+│   └── server/
+│       └── main.go
+├── internal/
+│   ├── config/
+│   ├── middleware/
+│   ├── routes/
+│   └── handlers/
+├── go.mod
+└── Dockerfile
+```
+**main.go**
+```
+package main
+
+import "gateway/internal/routes"
+
+func main() {
+    r := routes.SetupRouter()
+    r.Run(":8080")
+}
+```
+
+**Why Go here**
+ + ✔ High concurrency
+ + ✔ Low latency
+ + ✔ Excellent for gateways
+
+# 2️⃣ Authentication & IAM — Java (Spring Boot)
+```
+auth-java/
+├── src/main/java/com/openenterprise/auth/
+│   ├── AuthApplication.java
+│   ├── config/
+│   ├── controller/
+│   ├── service/
+│   └── security/
+├── src/main/resources/
+│   └── application.yml
+├── pom.xml
+└── Dockerfile
+```
+**AuthApplication.java**
+```
+@SpringBootApplication
+public class AuthApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AuthApplication.class, args);
+    }
+}
+```
+**Enterprise Focus**
+ +  ✔ JWT
+ +  ✔ OAuth2
+ +  ✔ RBAC
+ +  ✔ Multi-tenancy
+
+# 3️⃣ Accounting Engine — C# (.NET)
+```
+accounting-dotnet/
+├── Accounting.Api/
+│   ├── Controllers/
+│   ├── Services/
+│   ├── Domain/
+│   ├── Infrastructure/
+│   └── Program.cs
+├── Accounting.Tests/
+└── Accounting.sln
+```
+**Program.cs**
+```
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+var app = builder.Build();
+app.MapControllers();
+app.Run();
+```
+**Why C#**
+ + ✔  Financial accuracy
+ + ✔  Strong typing
+ + ✔  Enterprise accounting patterns
+
+# 4️⃣ CRM & Reporting — Python (FastAPI)
+```
+crm-python/
+├── app/
+│   ├── main.py
+│   ├── api/
+│   ├── models/
+│   ├── services/
+│   └── core/
+├── requirements.txt
+└── Dockerfile
+```
+**main.py**
+```
+from fastapi import FastAPI
+
+app = FastAPI(title="OpenEnterprise CRM")
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+```
+**Why Python**
+ + ✔  Fast development
+ + ✔  Analytics & exports
+ + ✔  AI-ready
+
+# 5️⃣ Manufacturing / MRP Engine — C / C++
+```
+manufacturing-cpp/
+├── src/
+│   ├── main.cpp
+│   ├── mrp/
+│   └── inventory/
+├── include/
+├── CMakeLists.txt
+└── Dockerfile
+```
+**main.cpp**
+```
+#include <iostream>
+
+int main() {
+    std::cout << "Manufacturing MRP Engine Started\n";
+    return 0;
+}
+```
+**Enterprise Reality**
+ + ✔  Heavy calculations
+ + ✔  Scheduling
+ + ✔  Cost optimization
+
+# 6️⃣ E-commerce Services — Node.js (JavaScript)
+```
+ecommerce-node/
+├── src/
+│   ├── app.js
+│   ├── routes/
+│   ├── controllers/
+│   └── services/
+├── package.json
+└── Dockerfile
+```
+**app.js**
+```
+const express = require('express');
+const app = express();
+
+app.get('/health', (_, res) => res.json({ status: 'ok' }));
+
+app.listen(3000, () => console.log('E-commerce service running'));
+```
+
+# 7️⃣ Web Frontend — React (JavaScript)
+```
+web-react/
+├── src/
+│   ├── pages/
+│   ├── components/
+│   ├── services/
+│   └── App.js
+├── package.json
+└── Dockerfile
+```
+**App.js**
+```
+function App() {
+  return <h1>OpenEnterprise ERP</h1>;
+}
+export default App;
+```
+
+# 8️⃣ Mobile App — React Native
+```
+mobile-react-native/
+├── src/
+│   ├── screens/
+│   ├── components/
+│   └── services/
+├── App.js
+└── package.json
+```
+**App.js**
+```
+import { Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View>
+      <Text>OpenEnterprise Mobile</Text>
+    </View>
+  );
+}
+```
+# 🐳 Docker Compose (Root)
+```
+version: "3.9"
+services:
+  gateway:
+    build: ./gateway-go
+    ports: ["8080:8080"]
+
+  auth:
+    build: ./auth-java
+    ports: ["8081:8081"]
+
+  accounting:
+    build: ./accounting-dotnet
+    ports: ["8082:8082"]
+
+  crm:
+    build: ./crm-python
+    ports: ["8083:8083"]
+```
