@@ -1,5 +1,6 @@
 # Enterprise-ERP-Manufacturing-Platform
 
+```
 Mobile App (React Native)
 Web App (React / JS)
         ↓
@@ -14,3 +15,4 @@ API Gateway (Go)
 ---------------------------------------------------
         ↓
 PostgreSQL | Redis | Message Queue
+```
