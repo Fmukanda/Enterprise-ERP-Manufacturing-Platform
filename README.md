@@ -19,24 +19,24 @@ PostgreSQL | Redis | Message Queue
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Frontend Layer                             │
-│  Web UI (React) | Mobile App (React Native) | Desktop (C#)   │
+│                    Frontend Layer                           │
+│  Web UI (React) | Mobile App (React Native) | Desktop (C#)  │
 └─────────────────────────────────────────────────────────────┘
                              │
 ┌─────────────────────────────────────────────────────────────┐
-│                 API Gateway & BFF (Go)                       │
-│   - Rate limiting | Auth | Request routing | Aggregation     │
+│                 API Gateway & BFF (Go)                      │
+│   - Rate limiting | Auth | Request routing | Aggregation    │
 └─────────────────────────────────────────────────────────────┘
                              │
 ┌─────────────────────────────────────────────────────────────┐
-│                Microservices Layer                           │
+│                Microservices Layer                          │
 ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌────────┐
 │  Order   │ │Inventory │ │Production│ │  CRM     │ │ Finance│
 │  (C#)    │ │  (Go)    │ │ (C++)    │ │ (Python) │ │ (Java) │
 └──────────┘ └──────────┘ └──────────┘ └──────────┘ └────────┘
                              │
 ┌─────────────────────────────────────────────────────────────┐
-│              Data & Integration Layer                        │
+│              Data & Integration Layer                       │
 │     C (Device drivers) | Python (ETL) | Go (Message Bus)    │
 └─────────────────────────────────────────────────────────────┘
 ```
